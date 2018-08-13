@@ -2,12 +2,12 @@
 body {
   background-image: url("../images/b2.jpg");
   background-size: 100%;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', 'Roboto';
   margin: 0; }
 
 h1.logo {
   color: #fff;
-  font-family: 'Roboto', cursive;
+  font-family: 'Roboto', 'Roboto';
   font-size: 4em; }
 
 h1.end {
