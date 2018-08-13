@@ -1,6 +1,6 @@
 @import url("../images/b2.jpg");
 body {
-  background-image: url("../images/b2.jpg");
+  background-image: url("../images/b5.jpg");
   background-size: 100%;
   font-family: 'Roboto', 'Roboto';
   margin: 0; }
@@ -118,4 +118,9 @@ h1.end {
 
 @media (max-width: 600px) {
   #form-box {
-    width: 80%; } }
+    width: 80%; }
+    #form-image {
+      display:none; }
+  
+  
+  }

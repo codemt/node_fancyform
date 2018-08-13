@@ -1,3 +1,19 @@
+
+// Initialize Firebase (ADD YOUR OWN DATA)
+var config = {
+  apiKey: "xxxxx",
+  authDomain: "xxxxx",
+  databaseURL: "xxxxx",
+  projectId: "xxxxx",
+  storageBucket: "xxxxx",
+  messagingSenderId: "xxxxx"
+};
+firebase.initializeApp(config);
+
+
+// Reference messages collection
+var inquirydataRef  = firebase.database().ref('inquirydata');
+
 // Questions Array
 const questions = [
   { question: 'Enter Your First Name' },
@@ -115,7 +131,29 @@ function inputPass() {
 
   // Store Answer In Array
   questions[position].answer = inputField.value;
+  
+  
+  
+    console.log("Answer is " +questions[position].answer);
+    var answer = questions[position].answer; 
+    var inquirydata = [];
+    var thisdata = inquirydata.concat(questions);
+    //inquirydata[position] = answer;
+    console.log(thisdata);
 
+    var firstName = thisdata[0].answer;
+    var lastName = thisdata[1].answer;
+    var Email = thisdata[2].answer;
+    var Instrument = thisdata[3].answer;
+    var Why = thisdata[4].answer;
+    var Profession = thisdata[5].answer;
+    var Residence = thisdata[6].answer;
+    var Classes = thisdata[7].answer;
+    var Travelling = thisdata[8].answer;
+
+    //console.log(firstName , lastname , Email , Instrument , Why , Profession , Residence , Classes , Travelling);
+
+    
   // Increment Position
   position++;
 
@@ -130,12 +168,12 @@ function inputPass() {
     progress.style.width = '100%';
 
     // Form Complete
-    formComplete();
+    formComplete(firstName, lastName, Email, Instrument, Why ,Profession , Residence , Classes , Travelling);
   }
 }
 
 // All Fields Complete - Show h1 end
-function formComplete() {
+function formComplete(firstName, lastName, Email, Instrument, Why ,Profession , Residence , Classes , Travelling) {
   const h1 = document.createElement('h1');
   h1.classList.add('end');
   h1.appendChild(
@@ -145,6 +183,20 @@ function formComplete() {
       } You are registered and will get an email shortly`
     )
   );
+     // Save message to firebase
+       var newinquiryDataRef = inquirydataRef.push();
+       newinquiryDataRef.set({
+         firstName: firstName,
+         lastName:lastName,
+         Email:Email,
+         Instrument:Instrument,
+         Why:Why,
+         Profession : Profession , 
+         Residence : Residence ,
+         Classes : Classes ,
+         Travelling : Travelling
+       });
+     
   setTimeout(() => {
     formBox.parentElement.appendChild(h1);
     setTimeout(() => (h1.style.opacity = 1), 50);
