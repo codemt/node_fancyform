@@ -1,12 +1,12 @@
 
 // Initialize Firebase (ADD YOUR OWN DATA)
 var config = {
-  apiKey: "xxxxx",
-  authDomain: "xxxxx",
-  databaseURL: "xxxxx",
-  projectId: "xxxxx",
-  storageBucket: "xxxxx",
-  messagingSenderId: "xxxxx"
+  apiKey: "AIzaSyDVAD-l1v41zmYxeL-EKu72UMNqb-exCyo",
+  authDomain: "inquiryformapp.firebaseapp.com",
+  databaseURL: "https://inquiryformapp.firebaseio.com",
+  projectId: "inquiryformapp",
+  storageBucket: "",
+  messagingSenderId: "193108845113"
 };
 firebase.initializeApp(config);
 
@@ -19,6 +19,7 @@ const questions = [
   { question: 'Enter Your First Name' },
   { question: 'Enter Your Last Name' },
   { question: 'Enter Your Email', pattern: /\S+@\S+\.\S+/ },
+  { question: 'Enter Your Mobile No.' },
   { question: 'Which Instrument you want to Learn?' },
   { question: 'Why do you want to Learn' },
   { question: 'Are you Working OR Are you a Student?' },
@@ -144,12 +145,13 @@ function inputPass() {
     var firstName = thisdata[0].answer;
     var lastName = thisdata[1].answer;
     var Email = thisdata[2].answer;
-    var Instrument = thisdata[3].answer;
-    var Why = thisdata[4].answer;
-    var Profession = thisdata[5].answer;
-    var Residence = thisdata[6].answer;
-    var Classes = thisdata[7].answer;
-    var Travelling = thisdata[8].answer;
+    var Mobile = thisdata[3].answer;
+    var Instrument = thisdata[4].answer;
+    var Why = thisdata[5].answer;
+    var Profession = thisdata[6].answer;
+    var Residence = thisdata[7].answer;
+    var Classes = thisdata[8].answer;
+    var Travelling = thisdata[9].answer;
 
     //console.log(firstName , lastname , Email , Instrument , Why , Profession , Residence , Classes , Travelling);
 
@@ -168,12 +170,12 @@ function inputPass() {
     progress.style.width = '100%';
 
     // Form Complete
-    formComplete(firstName, lastName, Email, Instrument, Why ,Profession , Residence , Classes , Travelling);
+    formComplete(firstName, lastName, Email, Mobile, Instrument,Why,Profession , Residence , Classes , Travelling);
   }
 }
 
 // All Fields Complete - Show h1 end
-function formComplete(firstName, lastName, Email, Instrument, Why ,Profession , Residence , Classes , Travelling) {
+function formComplete(firstName, lastName, Email, Mobile, Instrument,Why,Profession , Residence , Classes , Travelling) {
   const h1 = document.createElement('h1');
   h1.classList.add('end');
   h1.appendChild(
@@ -189,6 +191,7 @@ function formComplete(firstName, lastName, Email, Instrument, Why ,Profession , 
          firstName: firstName,
          lastName:lastName,
          Email:Email,
+         Mobile:Mobile,
          Instrument:Instrument,
          Why:Why,
          Profession : Profession , 
