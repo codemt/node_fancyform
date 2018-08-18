@@ -1,12 +1,12 @@
 
 // Initialize Firebase (ADD YOUR OWN DATA)
 var config = {
-  apiKey: "AIzaSyDVAD-l1v41zmYxeL-EKu72UMNqb-exCyo",
+  apiKey: "API_KEY",
   authDomain: "inquiryformapp.firebaseapp.com",
   databaseURL: "https://inquiryformapp.firebaseio.com",
   projectId: "inquiryformapp",
   storageBucket: "",
-  messagingSenderId: "193108845113"
+  messagingSenderId: "SENDER_ID"
 };
 firebase.initializeApp(config);
 
